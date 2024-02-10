@@ -1,14 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        final int numberOfRuns = 10;
 
-        long[][] times = new long[10][2];
+        long[][] times = new long[numberOfRuns][2];
 
-
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < numberOfRuns; i++) {
             times[i][0] = System.currentTimeMillis();
             for (int j = 0; j <= 1000000000; j++) {
-                if (solution.isPowerOfTwo(j)) {
+                if (isPowerOfTwo(j)) {
                     System.out.println(j);
                 }
             }
@@ -24,14 +23,12 @@ public class Main {
 
             if (i == (times.length - 1)) {
                 System.out.println("Total time: " + (resultSum / 1000.0));
-                System.out.println("Average time: " + ((resultSum / 10.0) / 1000.0));
+                System.out.println("Average time: " + ((resultSum / numberOfRuns) / 1000.0));
             }
         }
     }
-}
 
-class Solution {
-    public boolean isPowerOfTwo(int n) {
+    public static boolean isPowerOfTwo(int n) {
         while (true) {
             if (n <= 0) {
                 return false;
@@ -47,5 +44,21 @@ class Solution {
 
             n = n >> 1;
         }
+    }
+
+    public static boolean isPowerOfTwoRecursive(int n) {
+        if (n <= 0) {
+            return false;
+        }
+
+        if (n <= 2) {
+            return true;
+        }
+
+        if (n % 2 != 0) {
+            return false;
+        }
+
+        return isPowerOfTwoRecursive(n >> 1);
     }
 }
