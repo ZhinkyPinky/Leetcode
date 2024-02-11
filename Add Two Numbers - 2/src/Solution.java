@@ -1,44 +1,5 @@
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode result;
-        int sum = l1.val + l2.val;
-
-        if (l1.next != null || l2.next != null) {
-            if (sum >= 10) {
-                result = new ListNode(sum - 10);
-
-                if (l1.next == null) {
-                    result.next = addTwoNumbers(new ListNode(), l2.next);
-                } else if (l2.next == null) {
-                    result.next = addTwoNumbers(l1.next, new ListNode());
-                } else {
-                    result.next = addTwoNumbers(l1.next, l2.next);
-                }
-
-            } else {
-                result = new ListNode(sum);
-                if (l1.next == null) {
-                    result.next = addTwoNumbers(new ListNode(), l2.next);
-                } else if (l2.next == null) {
-                    result.next = addTwoNumbers(l1.next, new ListNode());
-                } else {
-                    result.next = addTwoNumbers(l1.next, l2.next);
-                }
-            }
-
-            return result;
-        }
-
-        if (sum >= 10) {
-            result = new ListNode(sum - 10);
-            result.next = new ListNode(1);
-            return result;
-        } else {
-            return new ListNode(sum);
-        }
-    }
-
-    public ListNode addTwoNumbersTwo(ListNode l1, ListNode l2) {
         ListNode result = new ListNode();
         ListNode resultLast = result;
 
