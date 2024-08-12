@@ -40,8 +40,8 @@ public class Main {
 
         for (int i = 0; i < expectedResult.length; i++) {
             if (inputArray[i] != expectedResult[i]) {
-                System.out.println(inputArray[i]);
-                System.out.println(expectedResult[i]);
+                //System.out.println(inputArray[i]);
+                //System.out.println(expectedResult[i]);
                 return false;
             }
         }

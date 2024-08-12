@@ -4,6 +4,20 @@ class Solution {
             return;
         }
 
+        while (nElements > 0) {
+            if (mElements == 0 || m[mElements - 1] <= n[nElements - 1]) {
+                m[mElements + nElements - 1] = n[nElements-- - 1];
+            } else {
+                m[mElements + nElements - 1] = m[mElements-- - 1];
+            }
+        }
+    }
+
+    public void mergeeee(int[] m, int mElements, int[] n, int nElements) {
+        if (nElements == 0) {
+            return;
+        }
+
         while (nElements > 0 && mElements < m.length) {
             m[mElements] = n[n.length - nElements];
             nElements--;

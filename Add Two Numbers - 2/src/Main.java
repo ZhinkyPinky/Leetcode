@@ -34,6 +34,7 @@ public class Main {
         return head.next;
     }
 
+
     private static void printList(ListNode result) {
         System.out.print(result.val);
 
